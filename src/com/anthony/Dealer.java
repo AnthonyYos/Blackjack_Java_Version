@@ -2,14 +2,16 @@ package com.anthony;
 
 public class Dealer extends  Player{
 
-    String name = "Dealer";
+    Dealer(){
+        super("Dealer");
+    }
 
     public void showSomeHand(){
         System.out.println(hand.get(0));
     }
 
     public void showSomeInfo(){
-        System.out.println(this.name + "'s"  + " Hand");
+        System.out.println(name + "'s"  + " Hand");
         showSomeHand();
         Card aCard = hand.get(0);
         System.out.println(aCard.getValue());
@@ -17,13 +19,10 @@ public class Dealer extends  Player{
     }
 
     public void showHandInfo(){
-        System.out.println(this.name + "'s" + " Hand");
+        System.out.println(name + "'s" + " Hand");
         showHand();
         System.out.println(getHandValue());
         System.out.println();
     }
 
-    public String getName(){
-        return this.name;
-    }
 }
