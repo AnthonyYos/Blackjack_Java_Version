@@ -45,4 +45,12 @@ public class Player {
         System.out.println(getHandValue());
         System.out.println();
     }
+
+    public boolean bust(){
+        return this.getHandValue() > 21;
+    }
+
+    public String getName(){
+        return this.name;
+    }
 }

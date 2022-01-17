@@ -17,9 +17,13 @@ public class Dealer extends  Player{
     }
 
     public void showHandInfo(){
-        System.out.println(name + "'s" + " Hand");
+        System.out.println(this.name + "'s" + " Hand");
         showHand();
         System.out.println(getHandValue());
         System.out.println();
+    }
+
+    public String getName(){
+        return this.name;
     }
 }
