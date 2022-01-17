@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player {
-    private String name = "Player 1";
+    protected String name;
     protected ArrayList<Card> hand = new ArrayList<Card>();
     private int handValue = 0;
     private int aces = 0;
@@ -51,6 +51,6 @@ public class Player {
     }
 
     public String getName(){
-        return this.name;
+        return name;
     }
 }
