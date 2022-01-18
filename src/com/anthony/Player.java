@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player {
-    protected String name;
-    protected ArrayList<Card> hand = new ArrayList<Card>();
+    private String name;
+    private ArrayList<Card> hand = new ArrayList<Card>();
     private int handValue = 0;
     private int aces = 0;
 
@@ -52,5 +52,9 @@ public class Player {
 
     public String getName(){
         return name;
+    }
+
+    public ArrayList<Card> getHand() {
+        return hand;
     }
 }
