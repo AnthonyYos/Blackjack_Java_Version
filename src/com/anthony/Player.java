@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Player {
     private String name;
-    private ArrayList<Card> hand = new ArrayList<Card>();
+    private ArrayList<Card> hand = new ArrayList<>();
     private int handValue = 0;
     private int aces = 0;
 
@@ -19,13 +19,13 @@ public class Player {
         hand.add(card);
         handValue += card.getValue();
         if(Objects.equals(card.getRank(), "Ace"))
-            this.aces += 1;
+            aces += 1;
     }
 
     public void adjustForAce(){
-        if (this.handValue > 21 && this.aces > 0) {
-            this.handValue -= 10;
-            this.aces -= 1;
+        if (handValue > 21 && aces > 0) {
+            handValue -= 10;
+            aces -= 1;
         }
     }
 
@@ -36,7 +36,7 @@ public class Player {
     }
 
     public int getHandValue() {
-        return this.handValue;
+        return handValue;
     }
 
     public void showHandInfo(){
@@ -47,7 +47,7 @@ public class Player {
     }
 
     public boolean bust(){
-        return this.getHandValue() > 21;
+        return getHandValue() > 21;
     }
 
     public String getName(){
