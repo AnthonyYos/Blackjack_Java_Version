@@ -20,16 +20,17 @@ public class Player {
         handValue += card.getValue();
         if(Objects.equals(card.getRank(), "Ace"))
             aces += 1;
+        adjustForAce();
     }
 
-    public void adjustForAce(){
+    private void adjustForAce(){
         if (handValue > 21 && aces > 0) {
             handValue -= 10;
             aces -= 1;
         }
     }
 
-    public void showHand(){
+    private void showHand(){
         for(Object card: hand)
             System.out.print(card + "\t");
         System.out.println();
@@ -54,7 +55,7 @@ public class Player {
         return name;
     }
 
-    public ArrayList<Card> getHand() {
+    protected ArrayList<Card> getHand() {
         return hand;
     }
 }

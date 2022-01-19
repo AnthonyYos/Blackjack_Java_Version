@@ -22,15 +22,12 @@ public class Main {
             catch (Exception e) {
                 System.out.println(("Not a valid option\n"));
             }
-
         }
-
         thePlayer.showHandInfo();
     }
 
     public static void hit(Deck theDeck, Player thePlayer){
         thePlayer.addCard(theDeck.deal());
-        thePlayer.adjustForAce();
     }
 
     public static void main(String[] args) {
