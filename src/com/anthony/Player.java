@@ -1,18 +1,26 @@
 package com.anthony;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class Player {
-    private String name;
-    private ArrayList<Card> hand = new ArrayList<>();
-    private int handValue = 0;
-    private int aces = 0;
+    private final String name;
+    private final List<Card> hand;
+    private int handValue;
+    private int aces;
 
-    Player(){}
+    Player(){
+        name = "NoName";
+        hand = new ArrayList<>();
+        handValue = 0;
+        aces = 0;}
 
     Player(String name){
         this.name = name;
+        hand = new ArrayList<>();
+        handValue = 0;
+        aces = 0;
     }
 
     public void addCard(Card card){
@@ -55,7 +63,7 @@ public class Player {
         return name;
     }
 
-    protected ArrayList<Card> getHand() {
+    protected List<Card> getHand() {
         return hand;
     }
 }
