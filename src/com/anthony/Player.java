@@ -3,6 +3,7 @@ package com.anthony;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Scanner;
 
 public class Player {
     private final String name;
@@ -28,7 +29,8 @@ public class Player {
         handValue += card.getValue();
         if(Objects.equals(card.getRank(), "Ace"))
             aces += 1;
-        adjustForAce();
+        if(aces > 0)
+            adjustForAce();
     }
 
     private void adjustForAce(){
@@ -39,7 +41,7 @@ public class Player {
     }
 
     private void showHand(){
-        for(Object card: hand)
+        for(Card card: hand)
             System.out.print(card + "\t");
         System.out.println();
     }
@@ -65,5 +67,29 @@ public class Player {
 
     protected List<Card> getHand() {
         return hand;
+    }
+
+    public void hitOrStand(Deck theDeck){
+        Scanner input = new Scanner(System.in);
+        while (getHandValue() < 21){
+            showHandInfo();
+            try{
+                System.out.println("Do you want to hit or stand? Enter 'h' or 's'\n");
+                char choice = Character.toLowerCase(input.next().charAt(0));
+                if(choice == 'h')
+                    hit(theDeck);
+                else if (choice == 's')
+                    break;
+                else
+                    throw new Exception("Entered an invalid input");
+            }
+            catch (Exception e) {
+                System.out.println(("Not a valid option\n"));
+            }
+        }
+    }
+
+    public void hit(Deck theDeck){
+        addCard(theDeck.deal());
     }
 }

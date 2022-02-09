@@ -4,31 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void hitOrStand(Deck theDeck, Player thePlayer){
-        Scanner input = new Scanner(System.in);
-        while (thePlayer.getHandValue() < 21){
-            thePlayer.showHandInfo();
 
-            try{
-                System.out.println("Do you want to hit or stand? Enter 'h' or 's'\n");
-                char choice = Character.toLowerCase(input.next().charAt(0));
-                if(choice == 'h')
-                    hit(theDeck,thePlayer);
-                else if (choice == 's')
-                    break;
-                else
-                    throw new Exception("Entered an invalid input");
-            }
-            catch (Exception e) {
-                System.out.println(("Not a valid option\n"));
-            }
-        }
-        thePlayer.showHandInfo();
-    }
-
-    public static void hit(Deck theDeck, Player thePlayer){
-        thePlayer.addCard(theDeck.deal());
-    }
 
     public static void main(String[] args) {
         final int blackjack = 21;
@@ -59,12 +35,14 @@ public class Main {
             dealer.showSomeInfo();
 
             // Player and dealer asked to hit if possible/wanted
-            if (p1.getHandValue() < blackjack)
-                hitOrStand(aDeck, p1);
+            if (p1.getHandValue() < blackjack) {
+                p1.hitOrStand(aDeck);
+                p1.showHandInfo();
+            }
             // Full reveal dealer hand before possible hits
             dealer.showHandInfo();
             while (dealer.getHandValue() < minHandValue)
-                hit(aDeck, dealer);
+                dealer.hit(aDeck);
 
             // Print final hand values
             System.out.println("Final Hands:");
