@@ -4,27 +4,32 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    private ArrayList<Card> cards;
+    final private ArrayList<Card> cards;
 
     public Deck(){
-        this.cards = new ArrayList<Card>();
+        cards = new ArrayList<>();
+        for(Suit cardSuit: Suit.values()){
+            for(Rank cardRank : Rank.values()) {
+                cards.add(new Card(cardSuit, cardRank));
+            }
+        }
     }
 
     public void createDeck(){
         //Generate cards
         for(Suit cardSuit: Suit.values()){
             for(Rank cardRank : Rank.values()) {
-                this.cards.add(new Card(cardSuit, cardRank));
+                cards.add(new Card(cardSuit, cardRank));
             }
         }
     }
 
     public void shuffle(){
-            Collections.shuffle(this.cards);
+            Collections.shuffle(cards);
     }
 
     public Card deal(){
-        return this.cards.remove(0);
+        return cards.remove(0);
     }
 
     public void printDeck(){

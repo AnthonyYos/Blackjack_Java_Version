@@ -21,7 +21,6 @@ public class Main {
         while(playBlackjack) {
             // Create Deck, player, and dealer
             Deck aDeck = new Deck();
-            aDeck.createDeck();
             aDeck.shuffle();
             Player p1 = new Player("Ant");
             Dealer dealer = new Dealer();

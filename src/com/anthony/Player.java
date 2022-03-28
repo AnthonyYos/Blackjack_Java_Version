@@ -11,7 +11,7 @@ public class Player {
     private int handValue;
     private int aces;
 
-    Player(){
+    public Player(){
         name = "NoName";
         hand = new ArrayList<>();
         handValue = 0;
@@ -65,7 +65,7 @@ public class Player {
         return name;
     }
 
-    protected List<Card> getHand() {
+    public List<Card> getHand() {
         return hand;
     }
 
