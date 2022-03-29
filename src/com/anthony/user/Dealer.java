@@ -1,12 +1,15 @@
-package com.anthony;
+package com.anthony.user;
+
+import com.anthony.card.Card;
 
 import java.util.List;
 
 public class Dealer extends  Player{
 
-    Dealer(){
+    public Dealer(){
         super("Dealer");
     }
+
 
     public void showSomeInfo(){
         System.out.println(getName() + "'s"  + " Hand");

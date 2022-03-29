@@ -1,9 +1,10 @@
-package com.anthony;
+package com.anthony.user;
+
+import com.anthony.card.Card;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Player {
     private final String name;
@@ -11,13 +12,8 @@ public class Player {
     private int handValue;
     private int aces;
 
-    public Player(){
-        name = "NoName";
-        hand = new ArrayList<>();
-        handValue = 0;
-        aces = 0;}
 
-    Player(String name){
+    public Player(String name){
         this.name = name;
         hand = new ArrayList<>();
         handValue = 0;
@@ -69,27 +65,5 @@ public class Player {
         return hand;
     }
 
-    public void hitOrStand(Deck theDeck){
-        Scanner input = new Scanner(System.in);
-        while (getHandValue() < 21){
-            showHandInfo();
-            try{
-                System.out.println("Do you want to hit or stand? Enter 'h' or 's'\n");
-                char choice = Character.toLowerCase(input.next().charAt(0));
-                if(choice == 'h')
-                    hit(theDeck);
-                else if (choice == 's')
-                    break;
-                else
-                    throw new Exception("Entered an invalid input");
-            }
-            catch (Exception e) {
-                System.out.println(("Not a valid option\n"));
-            }
-        }
-    }
 
-    public void hit(Deck theDeck){
-        addCard(theDeck.deal());
-    }
 }
