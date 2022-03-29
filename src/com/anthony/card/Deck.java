@@ -1,4 +1,4 @@
-package com.anthony;
+package com.anthony.card;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -8,15 +8,6 @@ public class Deck {
 
     public Deck(){
         cards = new ArrayList<>();
-        for(Suit cardSuit: Suit.values()){
-            for(Rank cardRank : Rank.values()) {
-                cards.add(new Card(cardSuit, cardRank));
-            }
-        }
-    }
-
-    public void createDeck(){
-        //Generate cards
         for(Suit cardSuit: Suit.values()){
             for(Rank cardRank : Rank.values()) {
                 cards.add(new Card(cardSuit, cardRank));

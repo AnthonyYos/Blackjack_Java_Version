@@ -1,4 +1,4 @@
-package com.anthony;
+package com.anthony.card;
 
 
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.Map;
 
 
 public class Card {
-    static Map<String, Integer> mapValues = new HashMap<String, Integer>(){{
+    static Map<String, Integer> mapValues = new HashMap<>(){{
         put("Two",2);
         put("Three",3);
         put("Four",4);
@@ -21,9 +21,9 @@ public class Card {
         put("King",10);
         put("Ace",11);
     }};
-    private Suit suit;
-    private Rank rank;
-    private int value;
+    final private Suit suit;
+    final private Rank rank;
+    final private int value;
 
     public Card(Suit suit, Rank rank){
         this.rank = rank;
