@@ -1,4 +1,4 @@
-package com.anthony;
+package com.anthony.game;
 
 import com.anthony.card.Deck;
 import com.anthony.user.Dealer;
@@ -29,7 +29,7 @@ public class BlackJackGame {
             thePlayer.showHandInfo();
             theDealer.showSomeInfo();
 
-            // Player and dealer asked to hit if possible/wanted
+            // Player asked to hit if possible/wanted
             if (thePlayer.getHandValue() < blackjack) {
                 hitOrStand(thePlayer, playDeck);
                 thePlayer.showHandInfo();
@@ -46,10 +46,11 @@ public class BlackJackGame {
 
             // Game conditions(win,loss,tie)
             // Tie (Equal hands or player and dealer bust)
-            if (checkTieGame(thePlayer, theDealer))
+            GameLogic checkGame = new GameLogic();
+            if (checkGame.checkTieGame(thePlayer, theDealer))
                 System.out.println("Tie");
                 // Player wins (Dealer bust or player's hand > dealer's hand)
-            else if (checkPlayerWin(thePlayer, theDealer))
+            else if (checkGame.checkPlayerWin(thePlayer, theDealer))
                 System.out.println(thePlayer.getName() + " wins!");
                 // Player loses
             else
@@ -83,17 +84,6 @@ public class BlackJackGame {
         thePlayer.addCard(theDeck.deal());
     }
 
-    private boolean checkTieGame(Player thePlayer, Dealer theDealer) {
-        return (thePlayer.getHandValue() == theDealer.getHandValue() || checkBust(thePlayer) && checkBust(theDealer));
-    }
-
-    private boolean checkPlayerWin(Player thePlayer, Dealer theDealer) {
-        return (checkBust(theDealer) || (thePlayer.getHandValue() > theDealer.getHandValue() && !checkBust(thePlayer)));
-    }
-
-    private boolean checkBust(Player currentUser) {
-        return currentUser.getHandValue() > 21;
-    }
 
     private boolean playAgain() {
         while (true) {

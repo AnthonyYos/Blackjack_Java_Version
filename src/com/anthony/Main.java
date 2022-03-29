@@ -1,7 +1,6 @@
 package com.anthony;
 
-import com.anthony.user.Dealer;
-import com.anthony.user.Player;
+import com.anthony.game.BlackJackGame;
 
 import java.util.Scanner;
 
