@@ -9,10 +9,13 @@ public class GameEvaluator {
     }
 
     static public void evaluateGame(Player thePlayer, Dealer theDealer) {
+        // Check for ties conditions
         if (checkTieGame(thePlayer, theDealer))
             System.out.println("Tie");
+        // Check for win conditions
         else if (checkPlayerWin(thePlayer, theDealer))
             System.out.println(thePlayer.getName() + " wins!");
+        // Else player lost by bust or lower hand value
         else
             System.out.println(theDealer.getName() + " wins");
     }

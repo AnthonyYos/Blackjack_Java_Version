@@ -1,7 +1,11 @@
 package com.anthony.card;
 
+import com.anthony.user.Dealer;
+import com.anthony.user.Player;
+
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class Deck {
     final private ArrayList<Card> cards;
@@ -26,5 +30,12 @@ public class Deck {
     public void printDeck(){
         for(Card card: cards)
             System.out.println(card);
+    }
+
+    public void resetDeck(Player thePlayer, Dealer theDealer){
+        List<Card> playerHand = thePlayer.getHand();
+        List<Card> dealerHand = theDealer.getHand();
+        cards.addAll(playerHand);
+        cards.addAll(dealerHand);
     }
 }
