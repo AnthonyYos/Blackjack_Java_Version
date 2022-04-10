@@ -1,12 +1,10 @@
 package com.anthony.card;
 
-
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class Card {
-    static Map<String, Integer> mapValues = new HashMap<>(){{
+     Map<String, Integer> mapValues = new HashMap<>(){{
         put("Two",2);
         put("Three",3);
         put("Four",4);

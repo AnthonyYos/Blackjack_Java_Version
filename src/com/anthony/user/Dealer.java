@@ -10,7 +10,6 @@ public class Dealer extends  Player{
         super("Dealer");
     }
 
-
     public void showSomeInfo(){
         System.out.println(getName() + "'s"  + " Hand");
         List<Card> hand = getHand();
@@ -19,5 +18,4 @@ public class Dealer extends  Player{
         System.out.println(aCard.getValue());
         System.out.println();
     }
-
 }
