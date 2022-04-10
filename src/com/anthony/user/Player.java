@@ -8,7 +8,7 @@ import java.util.Objects;
 
 public class Player {
     private final String name;
-    private final List<Card> hand;
+    private List<Card> hand;
     private int handValue;
     private int aces;
 
@@ -23,8 +23,10 @@ public class Player {
     public void addCard(Card card){
         hand.add(card);
         handValue += card.getValue();
-        if(Objects.equals(card.getRank(), "Ace"))
+        String sameRank = "Ace";
+        if(sameRank.equals(card.getRank()))
             aces += 1;
+        // If there are more than 1 ace check to see if hand value should be adjusted
         if(aces > 0)
             adjustForAce();
     }
@@ -47,7 +49,7 @@ public class Player {
     }
 
     public void showHandInfo(){
-        System.out.println(name + "'s" + " Hand");
+        System.out.println(name + "'s Hand");
         showHand();
         System.out.println(getHandValue());
         System.out.println();
@@ -62,5 +64,12 @@ public class Player {
         return hand;
     }
 
+    public void resetPlayer(){
+        //.Clear() empties the list, but keeps the size (potentially wasted memory allocation)
+        // new ArrayList() creates a new object, get rid of final if choosing new ArryaList();
+        hand = new ArrayList<>();
+        handValue = 0;
+        aces = 0;
+    }
 
 }
